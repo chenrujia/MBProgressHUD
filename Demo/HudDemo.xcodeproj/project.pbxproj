@@ -10,6 +10,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		5BE141EE1CD8C33D0023BC9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE141ED1CD8C33D0023BC9E /* QuartzCore.framework */; };
+		5BF01E041E2A1CF20003B9FD /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01E031E2A1CF20003B9FD /* MyCustomView.m */; };
+		5BF01E071E2A22F50003B9FD /* CircleAnimationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF01E061E2A22F50003B9FD /* CircleAnimationLayer.m */; };
 		D22F7D810F85241C00550BB3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F7D800F85241C00550BB3 /* MBProgressHUD.m */; };
 		D274948B1D3B74AA00ABEB66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D274948A1D3B74AA00ABEB66 /* Images.xcassets */; };
 		D27F18451D3B5878009D7482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D27F18441D3B5878009D7482 /* main.m */; };
@@ -42,6 +44,10 @@
 		1D6058910D05DD3D006BFB54 /* HudDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HudDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5BE141ED1CD8C33D0023BC9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5BF01E021E2A1CF20003B9FD /* MyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomView.h; sourceTree = SOURCE_ROOT; };
+		5BF01E031E2A1CF20003B9FD /* MyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomView.m; sourceTree = SOURCE_ROOT; };
+		5BF01E051E2A22F50003B9FD /* CircleAnimationLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleAnimationLayer.h; sourceTree = SOURCE_ROOT; };
+		5BF01E061E2A22F50003B9FD /* CircleAnimationLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleAnimationLayer.m; sourceTree = SOURCE_ROOT; };
 		D22F7D7F0F85241C00550BB3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		D22F7D800F85241C00550BB3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../MBProgressHUD.m; sourceTree = "<group>"; };
 		D274948A1D3B74AA00ABEB66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		080E96DDFE201D6D7F000001 /* HudDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5BF01E011E2A1CA20003B9FD /* CustomView */,
 				D27F18561D3B5DFF009D7482 /* MBHudDemoAppDelegate.h */,
 				D27F18571D3B5DFF009D7482 /* MBHudDemoViewController.h */,
 				D27F18581D3B5DFF009D7482 /* MBHudDemoAppDelegate.m */,
@@ -165,6 +172,17 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BF01E011E2A1CA20003B9FD /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				5BF01E021E2A1CF20003B9FD /* MyCustomView.h */,
+				5BF01E031E2A1CF20003B9FD /* MyCustomView.m */,
+				5BF01E051E2A22F50003B9FD /* CircleAnimationLayer.h */,
+				5BF01E061E2A22F50003B9FD /* CircleAnimationLayer.m */,
+			);
+			name = CustomView;
 			sourceTree = "<group>";
 		};
 		D277FDBF11FC880100304321 /* UI */ = {
@@ -358,7 +376,9 @@
 			files = (
 				D27F185B1D3B5DFF009D7482 /* MBHudDemoViewController.m in Sources */,
 				D22F7D810F85241C00550BB3 /* MBProgressHUD.m in Sources */,
+				5BF01E071E2A22F50003B9FD /* CircleAnimationLayer.m in Sources */,
 				D27F185E1D3B5E0D009D7482 /* main.m in Sources */,
+				5BF01E041E2A1CF20003B9FD /* MyCustomView.m in Sources */,
 				D27F185A1D3B5DFF009D7482 /* MBHudDemoAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

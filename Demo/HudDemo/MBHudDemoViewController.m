@@ -9,6 +9,7 @@
 #import "MBHudDemoViewController.h"
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MyCustomView.h"
 
 @interface MBExample : NSObject
 
@@ -46,7 +47,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.examples =
-    @[@[[MBExample exampleWithTitle:@"Indeterminate mode" selector:@selector(indeterminateExample)],
+    @[
+      @[[MBExample exampleWithTitle:@"圈" selector:@selector(circleExample)]],
+      @[[MBExample exampleWithTitle:@"Indeterminate mode" selector:@selector(indeterminateExample)],
         [MBExample exampleWithTitle:@"With label" selector:@selector(labelExample)],
         [MBExample exampleWithTitle:@"With details label" selector:@selector(detailsLabelExample)]],
       @[[MBExample exampleWithTitle:@"Determinate mode" selector:@selector(determinateExample)],
@@ -65,6 +68,21 @@
 }
 
 #pragma mark - Examples
+
+- (void)circleExample {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MyCustomView *customView = [[MyCustomView alloc] init];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.customView = customView;
+    [customView play];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        [self doSomeWork];
+        sleep(10);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [hud hideAnimated:YES];
+        });
+    });
+}
 
 - (void)indeterminateExample {
     // Show the HUD on the root view (self.view is a scrollable table view and thus not suitable,
