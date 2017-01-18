@@ -14,6 +14,8 @@
 
 @property (nonatomic) UIColor *color;
 
+@property (nonatomic) UIColor *circleBgColor;
+
 @property (nonatomic) CGFloat lineWidth;
 
 @end

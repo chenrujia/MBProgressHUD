@@ -13,6 +13,7 @@
 @dynamic progress;
 @dynamic color;
 @dynamic lineWidth;
+@dynamic circleBgColor;
 
 + (BOOL)needsDisplayForKey:(NSString *)key {
     if ([key isEqualToString:@"progress"]) {
@@ -48,10 +49,19 @@
         currentDest = -M_PI_2 + 2 * M_PI;
     }
     
+    UIBezierPath *path2 = [UIBezierPath bezierPath];
+    [path2 addArcWithCenter:center radius:radius startAngle:originStart endAngle:originEnd clockwise:YES];
+    CGContextAddPath(ctx, path2.CGPath);
+    CGContextSetLineWidth(ctx, self.lineWidth);
+    CGContextSetStrokeColorWithColor(ctx, self.circleBgColor.CGColor);
+    CGContextStrokePath(ctx);
+    
     [path addArcWithCenter:center radius:radius startAngle:currentOrigin endAngle:currentDest clockwise:YES];
+    
     CGContextAddPath(ctx, path.CGPath);
     CGContextSetLineWidth(ctx, self.lineWidth);
     CGContextSetStrokeColorWithColor(ctx, self.color.CGColor);
+    CGContextSetLineCap(ctx, kCGLineCapRound);
     CGContextStrokePath(ctx);
 }
 

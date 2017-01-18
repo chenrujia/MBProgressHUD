@@ -51,9 +51,10 @@
         _animationLayer = [CircleAnimationLayer layer];
         _animationLayer.contentsScale = [UIScreen mainScreen].scale;
         _animationLayer.progress = 1;
-        _animationLayer.lineWidth = 4;
+        _animationLayer.lineWidth = 6;
         _animationLayer.bounds = CGRectMake(0, 0, self.intrinsicContentSize.width, self.intrinsicContentSize.height);
-        _animationLayer.color = [UIColor blueColor];
+        _animationLayer.color = [UIColor colorWithRed:0.91f green:0.71f blue:0.49f alpha:1.00f];
+        _animationLayer.circleBgColor = [UIColor colorWithRed:0.96f green:0.86f blue:0.73f alpha:1.00f];
         _animationLayer.position = CGPointMake(CGRectGetMidX(_animationLayer.bounds), CGRectGetMidY(_animationLayer.bounds));
     }
     

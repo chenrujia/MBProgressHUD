@@ -71,6 +71,7 @@
 
 - (void)circleExample {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.bezelView.backgroundColor = [UIColor whiteColor];
     MyCustomView *customView = [[MyCustomView alloc] init];
     hud.mode = MBProgressHUDModeCustomView;
     hud.customView = customView;
