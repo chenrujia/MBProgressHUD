@@ -10,6 +10,4 @@
 
 @interface MyCustomView : UIView
 
-- (void)play;
-
 @end

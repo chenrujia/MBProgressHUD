@@ -26,17 +26,21 @@
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(75, 75);
+    return CGSizeMake(50, 50);
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    [self play];
 }
 
 - (void)play {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"progress"];
-    animation.duration = 1;
+    animation.duration = 1.5;
     animation.repeatCount = FLT_MAX;
     animation.fromValue = @0.0;
     animation.toValue = @1.0;
-//    animation.delegate = self;
-//    [animation setValue:@"step1" forKey:kName];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.animationLayer addAnimation:animation forKey:nil];
 }
 
@@ -45,8 +49,9 @@
 - (CircleAnimationLayer *)animationLayer {
     if (!_animationLayer) {
         _animationLayer = [CircleAnimationLayer layer];
+        _animationLayer.contentsScale = [UIScreen mainScreen].scale;
         _animationLayer.progress = 1;
-        _animationLayer.lineWidth = 2;
+        _animationLayer.lineWidth = 4;
         _animationLayer.bounds = CGRectMake(0, 0, self.intrinsicContentSize.width, self.intrinsicContentSize.height);
         _animationLayer.color = [UIColor blueColor];
         _animationLayer.position = CGPointMake(CGRectGetMidX(_animationLayer.bounds), CGRectGetMidY(_animationLayer.bounds));

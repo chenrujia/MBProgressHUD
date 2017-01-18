@@ -52,7 +52,6 @@
     CGContextAddPath(ctx, path.CGPath);
     CGContextSetLineWidth(ctx, self.lineWidth);
     CGContextSetStrokeColorWithColor(ctx, self.color.CGColor);
-    CGContextSetShouldAntialias(ctx, YES);
     CGContextStrokePath(ctx);
 }
 

@@ -74,7 +74,6 @@
     MyCustomView *customView = [[MyCustomView alloc] init];
     hud.mode = MBProgressHUDModeCustomView;
     hud.customView = customView;
-    [customView play];
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         [self doSomeWork];
         sleep(10);
